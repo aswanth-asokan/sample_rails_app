@@ -2,14 +2,14 @@ version: 0.0
 os: linux
 files:
  - source: /
-   destination: /var/www/truckerbux-web/
+   destination: /var/www/roq-web/
 file_exists_behavior: OVERWRITE
 hooks:
   ApplicationStop:
-    - location: scripts/stop_puma_service
+    - location: stop_puma_service
       timeout: 300
       runas: root
   ApplicationStart:
-   - location: scripts/start_puma_service
+   - location: start_puma_service
      timeout: 300
      runas: root
