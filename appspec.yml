@@ -1,19 +1,15 @@
 version: 0.0
 os: linux
 files:
- - source: /
-   destination: /var/www/truckerbux-web/
-file_exists_behavior: OVERWRITE
-hooks:
-  ApplicationStop:
-    - location: scripts/stop_puma_service
-      timeout: 300
-      runas: root
-  ApplicationStart:
-   - location: scripts/start_puma_service
-     timeout: 300
-     runas: root
+  - source: /
+    destination: /var/www/roq-web
+permissions:
+  - object: /var/www/roq-web
+    owner: ubuntu
+    group: ubuntu
   AfterInstall:
-   - location: scripts/copy_env_s3
-     timeout: 300
-     runas: root
+    - location: afterinstall.sh
+      runas: ubuntu
+  ApplicationStart:
+    - location: applicationstart.sh
+      runas: ubuntu
