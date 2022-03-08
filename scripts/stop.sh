@@ -2,3 +2,4 @@
 
 echo "==>Stopping Puma Service"
 sudo service puma stop
+~                      

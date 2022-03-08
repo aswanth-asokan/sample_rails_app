@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "==>Restarting Puma Service"
-bundle install
-sudo service puma start

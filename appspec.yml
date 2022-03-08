@@ -6,10 +6,15 @@ files:
 file_exists_behavior: OVERWRITE
 hooks:
   ApplicationStop:
-    - location: stop_puma_service
+    - location: scripts/stop_puma_service
       timeout: 300
       runas: root
   ApplicationStart:
-   - location: start_puma_service
+   - location: scripts/start_puma_service
      timeout: 300
      runas: root
+  AfterInstall:
+   - location: scripts/copy_env_s3
+     timeout: 300
+     runas: root
+
