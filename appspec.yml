@@ -16,5 +16,5 @@ hooks:
   AfterInstall:
    - location: scripts/copy.sh
      timeout: 300
-     runas: ubuntu
+     runas: root
 
