@@ -8,13 +8,13 @@ hooks:
   ApplicationStop:
     - location: scripts/stop.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
   ApplicationStart:
    - location: scripts/start.sh
      timeout: 300
-     runas: root
+     runas: ubuntu
   AfterInstall:
    - location: scripts/copy.sh
      timeout: 300
-     runas: root
+     runas: ubuntu
 
