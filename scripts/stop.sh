@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo "==>Stopping Puma Service"
-sudo service puma stop
+sudo su
+systemctl stop puma.service
 ~                      
