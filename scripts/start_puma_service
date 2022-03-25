@@ -1,0 +1,16 @@
+#!/bin/bash
+rvm use --default ruby-2.6.5
+if [ "$APPLICATION_ENV" == "PROD" ]
+then
+RAILS_ENV=production bundle install
+RAILS_ENV=production rake db:migrate
+RAILS_ENV=production rake assets:precompile
+elif [ "$APPLICATION_ENV" == "DEV" ] || [ "$APPLICATION_ENV" == "STAGING" ]
+then
+RAILS_ENV=staging bundle install
+RAILS_ENV=staging rake db:migrate
+RAILS_ENV=staging rake assets:precompile
+fi
+sudo service sidekiq restart
+sudo service puma start
+
