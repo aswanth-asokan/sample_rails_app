@@ -3,11 +3,11 @@
 echo "==>Copying env from S3"
 if [ "$APPLICATION_ENV" == "PROD" ]
 then
-aws s3 cp s3://test-webapp/scripts/.env-prod /var/www/roq-web/.env
+aws s3 cp s3://test-webapp/env/.env-prod /var/www/roq-web/.env
 elif [ "$APPLICATION_ENV" == "DEV" ] 
 then
-aws s3 cp s3://test-webapp/scripts/.env-dev /var/www/roq-web/.env
+aws s3 cp s3://test-webapp/env/.env-dev /var/www/roq-web/.env
 elif [ "$APPLICATION_ENV" == "STAGING" ]
 then
-aws s3 cp s3://test-webapp/scripts/.env-staging /var/www/roq-web/.env
+aws s3 cp s3://test-webapp/env/.env-staging /var/www/roq-web/.env
 fi
